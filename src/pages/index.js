@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchItems } from '@/redux/home/slice';
 import { fetchAddItems } from '@/redux/cart/slice';
 
+//сделай код чуть-чуть красивее(отступы выровни)
+
 export const AppContext = createContext();
 
 const Home = () => {
