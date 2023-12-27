@@ -8,7 +8,7 @@ import { fetchAddItems } from '@/redux/cart/slice';
 
 // сделай код чуть-чуть красивее (отступы выровни)
 
-export const AppContext = createContext();
+export const AppContext = createContext(); // опять же useContext не нужен
 
 const Home = () => {
   const { items } = useSelector((state) => state.home);
@@ -24,7 +24,7 @@ const Home = () => {
       dispatch(fetchAddItems({ obj }));
     } catch (error) {
       console.log(error);
-      alert('Не удалось добавить товар в корзину');
+      alert('Не удалось добавить товар в корзину'); // убери дефолтные алерты и возьми с ui библиотеки
     }
   };
 
