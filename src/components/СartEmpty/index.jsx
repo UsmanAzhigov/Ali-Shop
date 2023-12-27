@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const CartEmpty = () => {
   return (
-    <>
+ // зачем тебе это  ==>  <> 
       <div className={styles.titleCartEmpty}>
         <Title className={styles.cartEmptyTitle} order={1}>
           В корзине пусто
