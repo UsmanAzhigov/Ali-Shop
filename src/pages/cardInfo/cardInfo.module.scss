@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600&display=swap'); // везде одинаковый шрифт используй и тебе не придется импортировать в разных файлах, а просто в глобальном
 
 .cardInfo {
   padding: 34px;
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   width: 604px;
-  height: 386px;
+  height: 386px; // делай резиновый блок с помощью pd
   border: 1px solid rgba(0, 0, 0, 0.142);
   border-radius: 80px;
 }
