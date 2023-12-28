@@ -7,8 +7,8 @@
 
 .line {
   border: 1px solid #00000026;
-  width: 1660px;
-  margin-left: -33px;
+  width: 1660px; // ? 
+  margin-left: -33px; // зачем это делать ?
 }
 
 .clearAll {
@@ -19,7 +19,7 @@
 
 .cartItems {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); // зачем гриды, если используешь везде flex
   gap: 20px;
   padding-top: 30px;
 }
@@ -36,8 +36,8 @@
   font-weight: 700;
 }
 
-.payNow {
-  width: 268px;
+.payNow { // что будет, если твой блок сжать, весь твой сайт покрашится
+  width: 268px; 
   height: 59px;
   border-radius: 20px;
   background-color: #9fd4d8;
@@ -58,5 +58,5 @@
 .payBlock {
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 80px; // такие гэпы зачем задаешь?
 }

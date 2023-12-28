@@ -22,4 +22,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profile; // отступы и подключи prettier

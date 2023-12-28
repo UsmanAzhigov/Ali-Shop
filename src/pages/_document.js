@@ -4,8 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <title>Ali Shop</title>
-
+      <title>Ali Shop</title> 
       <body>
         <Main />
         <NextScript />
@@ -13,3 +12,6 @@ export default function Document() {
     </Html>
   );
 }
+// между title и body не нужен отступ
+
+

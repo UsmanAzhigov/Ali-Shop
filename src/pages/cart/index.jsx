@@ -44,8 +44,7 @@ const Cart = () => {
   const payProduct = async (items) => {
     try {
       dispatch(fetchPayProduct({ items }));
-      dispatch(fetchClearItems(items));
-
+      dispatch(fetchClearItems(items)); // зачем вызывать второй метод, если можешь в fetchPayProduct вызывать внутри удаления всех элементов
       alert('Товары успешно добавлены в профиль:)');
     } catch (error) {
       alert('Не удалось добавить товары в профиль');

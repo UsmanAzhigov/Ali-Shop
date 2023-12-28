@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchItems } from '@/redux/home/slice';
 import { fetchAddItems } from '@/redux/cart/slice';
 
-export const AppContext = createContext();
+// сделай код чуть-чуть красивее (отступы выровни)
+
+export const AppContext = createContext(); // опять же useContext не нужен
 
 const Home = () => {
   const { items } = useSelector((state) => state.home);
@@ -22,7 +24,7 @@ const Home = () => {
       dispatch(fetchAddItems({ obj }));
     } catch (error) {
       console.log(error);
-      alert('Не удалось добавить товар в корзину');
+      alert('Не удалось добавить товар в корзину'); // убери дефолтные алерты и возьми с ui библиотеки
     }
   };
 

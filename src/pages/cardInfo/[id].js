@@ -5,7 +5,7 @@ import { Rate } from 'antd';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCardInfo } from '@/redux/cardInfo/slice';
-import { fetchAddItems, fetchPayProduct } from '@/redux/cart/slice';
+import { fetchAddItems, fetchPayProduct } from '@/redux/cart/slice'; // выровни и раздели
 
 const CardInfo = () => {
   const { items } = useSelector((state) => state.cardInfo);
@@ -15,7 +15,7 @@ const CardInfo = () => {
   React.useEffect(() => {
     const id = router.query.id;
     dispatch(fetchCardInfo({ id }));
-  }, []);
+  }, []); // отступы 
   const addToCart = (obj) => {
     try {
       dispatch(fetchAddItems({ obj }));
@@ -63,12 +63,12 @@ const CardInfo = () => {
                   </button>
                 </div>
                 <div className={styles.reviews}>
-                  <Title style={{ color: 'grey', fontWeight: 300 }} order={3}>
+                  <Title style={{ color: 'grey', fontWeight: 300 }} order={3}> // инлайн стили не используй, находи класс этого компонента и так
                     {item.reviews}
                   </Title>
-                  <p style={{ color: 'grey' }}>•</p>
+                  <p style={{ color: 'grey' }}>•</p>  ///инлайн стили
                   <Rate
-                    style={{ color: 'rgba(255, 170, 0, 1)', fontSize: 15 }}
+                    style={{ color: 'rgba(255, 170, 0, 1)', fontSize: 15 }} // инлайн стили
                     defaultValue={item.rating}
                   />
                 </div>
@@ -77,8 +77,8 @@ const CardInfo = () => {
             <div className={styles.describe}>
               <Title order={3}>Цвет: {item.color}</Title>
               <Title order={3}>Питание</Title>
-              <Title order={3}>Время зарядки _____________ {item.timeCharging}</Title>
-              <Title order={3}>Время работы от аккумулятора _____________ {item.lifeBattery}</Title>
+              <Title order={3}>Время зарядки _____________ {item.timeCharging}</Title> /// это можно сделать по другому (черточка)
+              <Title order={3}>Время работы от аккумулятора _____________ {item.lifeBattery}</Title> 
             </div>
           </>
         );

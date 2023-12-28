@@ -13,7 +13,7 @@ const theme = createTheme({
 });
 
 export default function App({ Component, pageProps }) {
-  const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState(''); // Для чего это и зачем тебе useContext, если ты используешь redux-toolkit
 
   return (
     <MantineProvider theme={theme}>
