@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './cart.module.scss';
 import { Title } from '@mantine/core';
 import axios from 'axios';
@@ -17,36 +17,37 @@ const Cart = () => {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchCartItems());
   }, []);
 
   const clearAll = async () => {
     try {
-      dispatch(fetchClearItems(items));
+      await dispatch(fetchClearItems(items));
       alert('Корзина очищена!');
     } catch (error) {
-      console.log(error);
+      console.error(error);
       alert('Не удалось очистить корзину');
     }
   };
 
   const removeProduct = async (id) => {
     try {
-      dispatch(fetchRemoveItems({ id }));
+      await dispatch(fetchRemoveItems({ id }));
       dispatch(setItems(items.filter((obj) => obj.id !== id)));
     } catch (error) {
+      console.error(error);
       alert('Не удалось удалить товар:(');
-      console.log(error);
     }
   };
 
-  const payProduct = async (items) => {
+  const payProduct = async () => {
     try {
-      dispatch(fetchPayProduct({ items }));
-      dispatch(fetchClearItems(items)); // зачем вызывать второй метод, если можешь в fetchPayProduct вызывать внутри удаления всех элементов
+      await dispatch(fetchPayProduct({ items }));
+      await dispatch(fetchClearItems(items));
       alert('Товары успешно добавлены в профиль:)');
     } catch (error) {
+      console.error(error);
       alert('Не удалось добавить товары в профиль');
     }
   };
@@ -67,16 +68,16 @@ const Cart = () => {
                 <span className={styles.price}>: {totalPrice} ₽</span>
               </div>
               <div className={styles.btnPay}>
-                <button className={styles.payNow} onClick={() => payProduct(items)}>
+                <button className={styles.payNow} onClick={payProduct}>
                   Оплатить сейчас
                 </button>
               </div>
             </div>
           </div>
           <div className={styles.cartItems}>
-            {items.map((item) => {
-              return <CardCart removeProduct={(id) => removeProduct(id)} {...item} />;
-            })}
+            {items.map((item) => (
+              <CardCart key={item.id} removeProduct={() => removeProduct(item.id)} {...item} />
+            ))}
           </div>
         </>
       )}
